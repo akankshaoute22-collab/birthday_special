@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Birthday Surprise ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- MUSIC: stays active across all screens -->
+    <audio id="birthdayMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- FIXED MUSIC PLAYER WITH HIS PHOTO -->
+    <div class="music-player">
+        <img src="his.jpg" alt="Birthday boy" class="music-photo">
+
+        <div class="music-info">
+            <span>Made for you ❤️</span>
+            <small>Birthday Melody ♪</small>
+        </div>
+
+        <button id="musicButton" onclick="toggleMusic()"
+                aria-label="Play or pause music">
+            ▶
+        </button>
+    </div>
+
+    <!-- SCREEN 1: MUSIC -->
+    <section id="musicScreen" class="screen active">
+
+        <div class="music-circle">🎵</div>
+
+        <p class="subtitle">A LITTLE SURPRISE FOR YOU</p>
+
+        <h1>Before Anything Else...</h1>
+
+        <p class="intro-text">
+            I made something special just for you.
+            So sit back, turn up the volume, and enjoy
+            this little surprise. ❤️
+        </p>
+
+        <button onclick="startBirthday()">
+            Play Your Birthday Song 🎶
+        </button>
+
+        <p class="small-note">
+            A little music, a little happiness, and a lot of wishes. ✨
+        </p>
+
+    </section>
+
+    <!-- SCREEN 2: HAPPY BIRTHDAY -->
+    <section id="birthdayScreen" class="screen">
+
+        <div class="cake">🎂</div>
+
+        <p class="subtitle">TODAY IS ALL ABOUT YOU</p>
+
+        <h1 class="birthday-heading">
+            Happy Birthday,<br>
+            <span>My Birthday Boy! ❤️</span>
+        </h1>
+
+        <p class="intro-text">
+            Today is your day. May it be filled with
+            happiness, laughter, love, and beautiful memories.
+        </p>
+
+        <button onclick="showSection('paragraphScreen')">
+            Read Your Birthday Wish 💌
+        </button>
+
+    </section>
+
+    <!-- SCREEN 3: BIRTHDAY PARAGRAPH -->
+    <section id="paragraphScreen" class="screen">
+
+        <p class="subtitle">SOMETHING FROM MY HEART</p>
+
+        <div class="letter-card">
+
+            <div class="letter-icon">💗</div>
+
+            <h1>A Birthday Wish For You</h1>
+
+            <p id="birthdayParagraph"></p>
+
+            <p class="signature">
+                Made with love, especially for you. ❤️
+            </p>
+
+        </div>
+
+        <button onclick="showSection('letterScreen')">
+            One More Little Thing 💌
+        </button>
+
+    </section>
+
+    <!-- SCREEN 4: A LETTER FOR YOU -->
+    <section id="letterScreen" class="screen">
+
+        <div class="letter-card original-letter">
+
+            <div class="letter-icon">💌</div>
+
+            <h1>A Letter For You</h1>
+
+            <p id="letterText"></p>
+
+            <button onclick="showSection('cuteNoteScreen')">
+                One More Surprise 🎁
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- SCREEN 5: CUTE NOTE WITH BOTH OF YOUR PHOTOS -->
+    <section id="cuteNoteScreen" class="screen">
+
+        <p class="subtitle">A LITTLE NOTE FOR YOU ❤️</p>
+
+        <h1>Just Us ♡</h1>
+
+        <div class="memory-card">
+
+            <img
+                src="both.jpg"
+                alt="Our photo together"
+                class="couple-photo"
+            >
+
+            <div class="note-paper">
+
+                <div class="note-decoration">♡ ✨ ♡</div>
+
+                <h2>A Tiny Note</h2>
+
+                <p id="cuteNote"></p>
+
+                <p class="signature">
+                    Keep smiling, birthday boy! ❤️
+                </p>
+
+            </div>
+
+        </div>
+
+        <button onclick="showSection('hisPhotoScreen')">
+            One More Little Surprise 🫶
+        </button>
+
+    </section>
+
+    <!-- SCREEN 6: HIS PHOTO -->
+    <section id="hisPhotoScreen" class="screen">
+
+        <p class="subtitle">TODAY'S MAIN CHARACTER</p>
+
+        <h1>Look Who's Celebrating! 🎂</h1>
+
+        <div class="his-photo-card">
+
+            <img
+                src="his.jpg"
+                alt="Birthday boy"
+                class="his-main-photo"
+            >
+
+            <h2>It's Your Special Day ❤️</h2>
+
+            <p>
+                One special day, countless reasons to smile,
+                and a whole new year of possibilities.
+            </p>
+
+            <div class="sparkles">✨ 🎂 ✨</div>
+
+        </div>
+
+        <!-- GAME REMOVED: GO DIRECTLY TO VIRTUAL GIFTS -->
+        <button onclick="showSection('giftsScreen')">
+            Open Your Gifts 🎁
+        </button>
+
+    </section>
+
+    <!-- SCREEN 7: VIRTUAL GIFTS -->
+    <section id="giftsScreen" class="screen">
+
+        <p class="subtitle">A FEW LITTLE SURPRISES</p>
+
+        <h1>Open Your Gifts 🎁</h1>
+
+        <p>
+            Tap each gift and see what little surprise
+            is waiting inside.
+        </p>
+
+        <div class="gift-container">
+
+            <button class="gift" onclick="openGift(0)"
+                    aria-label="Open gift one">
+                🎁
+            </button>
+
+            <button class="gift" onclick="openGift(1)"
+                    aria-label="Open gift two">
+                💝
+            </button>
+
+            <button class="gift" onclick="openGift(2)"
+                    aria-label="Open gift three">
+                🎀
+            </button>
+
+        </div>
+
+        <div id="giftMessage" class="gift-message" aria-live="polite">
+            Choose a gift to discover your surprise! ❤️
+        </div>
+
+        <button
+            id="giftNext"
+            class="hidden"
+            onclick="showSection('finalScreen')"
+        >
+            One Last Thing ❤️
+        </button>
+
+    </section>
+
+    <!-- SCREEN 8: FINAL SURPRISE -->
+    <section id="finalScreen" class="screen">
+
+        <div class="final-heart">❤️</div>
+
+        <p class="subtitle">YOUR FINAL SURPRISE</p>
+
+        <h1>Happy Birthday Again!</h1>
+
+        <div class="final-card">
+
+            <img
+                src="both.jpg"
+                alt="Our special memory"
+                class="final-photo"
+            >
+
+            <p id="finalMessage"></p>
+
+            <h2>Made Especially For You ✨</h2>
+
+            <p>With love,</p>
+
+            <h2>Akshuu ❤️</h2>
+
+        </div>
+
+        <button onclick="replayWebsite()">
+            Replay Your Surprise ↻
+        </button>
+
+    </section>
+
+    <!-- FLOATING HEARTS -->
+    <div id="hearts"></div>
+
+    <!-- CONFETTI -->
+    <div id="confetti"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
